@@ -29,15 +29,14 @@ const _getUranais = async (date, sign, previousFetchedAt) => {
     ...doc.data(),
   }));
 
-  // const uranais_with_title = uranais.map((uranai) => {
-  //   if ("title" in uranai) {
-  //     return uranai;
-  //   } else {
-  //     return { ...uranai, title: "仮メディア - 仮タイトル" };
-  //   }
-  // });
+  const uranaisSplitted = uranais.map((uranai) => {
+    const media_title = uranai.title.split("-");
+    const media = media_title[0].trim();
+    const title = media_title[1].trim();
+    return { ...uranai, titleWithoutMedia: title, media: media };
+  });
 
-  const uranaisExistBody = uranais.filter((uranai) => {
+  const uranaisExistBody = uranaisSplitted.filter((uranai) => {
     return uranai.body !== "";
   });
   //   if ("title" in uranai) {
