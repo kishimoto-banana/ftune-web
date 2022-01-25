@@ -1,25 +1,23 @@
-import Head from "next/head";
-import Card from "../components/Card";
-import { getAuth, signInAnonymously } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { getUranais } from "../firebase/firestore";
 import { format, parse } from "date-fns";
 import ja from "date-fns/locale/ja";
+import { getAuth, signInAnonymously } from "firebase/auth";
+import Head from "next/head";
+import { useEffect } from "react";
+import Card from "../components/Card";
+import { getUranais } from "../lib/uranais";
 
-export default function Home() {
-  const [uranais, setUranais] = useState([]);
+export async function getStaticProps() {
+  const uranais = await getUranais("20220124", "aries");
+  return { props: { uranais } };
+}
 
+export default function Home({ uranais }) {
   useEffect(() => {
     const auth = getAuth();
     signInAnonymously(auth);
-    getFirebaseItems();
   }, []);
 
-  const getFirebaseItems = async () => {
-    const fetchedUranais = await getUranais("20220124", "aries");
-    setUranais(fetchedUranais);
-  };
-
+  console.log("uranais");
   console.log(uranais);
 
   return (
@@ -29,8 +27,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center">
+        <div class="p-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-3">
           {uranais.map((uranai, index) => {
             const visualDate =
               typeof uranai.from_date === "undefined"
@@ -56,6 +54,7 @@ export default function Home() {
                 media={uranai.media}
                 body={uranai.body}
                 frequency={uranai.frequency}
+                type={uranai.type}
                 date={visualDate}
                 imageUrl={uranai.imageUrl}
                 key={index}

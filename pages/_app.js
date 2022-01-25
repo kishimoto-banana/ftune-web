@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "../firebase/init";
+import "../firebase/clientApp";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

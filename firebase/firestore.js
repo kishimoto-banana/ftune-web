@@ -3,7 +3,6 @@ import {
   addDoc,
   collection,
   doc,
-  enableIndexedDbPersistence,
   getDoc,
   getDocs,
   getFirestore,
@@ -12,10 +11,11 @@ import {
   setDoc,
   Timestamp,
   updateDoc,
+  enableMultiTabIndexedDbPersistence,
 } from "firebase/firestore";
 
 const firestore = getFirestore();
-enableIndexedDbPersistence(firestore);
+enableMultiTabIndexedDbPersistence(firestore);
 
 const ImageUrlBase = "https://d173y4sbgdpniu.cloudfront.net";
 
