@@ -7,15 +7,15 @@ import Card from "../components/Card";
 import { getUranais } from "../lib/uranais";
 
 export async function getStaticProps() {
-  const uranais = await getUranais("20220124", "aries");
+  const uranais = await getUranais("20220125", "aries");
   return { props: { uranais } };
 }
 
 export default function Home({ uranais }) {
-  useEffect(() => {
-    const auth = getAuth();
-    signInAnonymously(auth);
-  }, []);
+  // useEffect(() => {
+  //   const auth = getAuth();
+  //   signInAnonymously(auth);
+  // }, []);
 
   console.log("uranais");
   console.log(uranais);
