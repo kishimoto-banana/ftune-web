@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import useSWR from "swr";
 import Card from "../components/Card";
+import { useUser } from "../context/userContext";
 import { getUranais } from "../firebase/firestore";
 
 // export async function getServerSideProps() {
