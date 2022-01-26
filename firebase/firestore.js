@@ -114,6 +114,19 @@ export const signIn = async (setUser) => {
   const auth = getAuth();
 };
 
+export const getUser = async (userId) => {
+  const docRef = doc(firestore, "users", userId);
+  const userDoc = await getDoc(docRef);
+
+  if (!userDoc.exists()) {
+    return null;
+  }
+  return {
+    id: userId,
+    ...userDoc.data(),
+  };
+};
+
 export const registerUser = async (user) => {
   const { id, forceFetch, ...userExId } = user;
   const registerUser = { ...userExId, ...initialUser };

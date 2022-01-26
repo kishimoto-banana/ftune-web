@@ -1,24 +1,32 @@
 import { format, parse } from "date-fns";
 import ja from "date-fns/locale/ja";
-import { getAuth, signInAnonymously } from "firebase/auth";
 import Head from "next/head";
 import { useEffect } from "react";
+import useSWR from "swr";
 import Card from "../components/Card";
-import { getUranais } from "../lib/uranais";
+import { getUranais } from "../firebase/firestore";
 
-export async function getStaticProps() {
-  const uranais = await getUranais("20220125", "aries");
-  return { props: { uranais } };
-}
+// export async function getServerSideProps() {
+//   const uranais = await getUranais("20220126", "scorpio");
+//   return { props: { uranais } };
+// }
 
-export default function Home({ uranais }) {
-  // useEffect(() => {
-  //   const auth = getAuth();
-  //   signInAnonymously(auth);
-  // }, []);
+const fetchUranais = async (user) => {
+  const fetchedUranais = getUranais("20220126", user.sign);
+  return fetchedUranais;
+};
 
-  console.log("uranais");
-  console.log(uranais);
+export default function Home() {
+  const { loadingUser, user } = useUser();
+
+  useEffect(() => {
+    if (!loadingUser) {
+      console.log(user);
+    }
+  }, [loadingUser, user]);
+
+  const { data } = useSWR(user, fetchUranais);
+  if (!data) return <div>Loading...</div>;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -29,7 +37,7 @@ export default function Home({ uranais }) {
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center">
         <div class="p-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-          {uranais.map((uranai, index) => {
+          {data.map((uranai, index) => {
             const visualDate =
               typeof uranai.from_date === "undefined"
                 ? format(parse(uranai.date, "yyyyMMdd", new Date()), "M月d日", {
