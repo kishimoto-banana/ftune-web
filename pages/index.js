@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import useSWR from "swr";
 import Card from "../components/Card";
+import FormContainer from "../components/FormContainer";
 import { useUser } from "../context/userContext";
 import { getUranais } from "../firebase/firestore";
 
@@ -13,7 +14,11 @@ import { getUranais } from "../firebase/firestore";
 // }
 
 const fetchUranais = async (user) => {
-  const fetchedUranais = getUranais("20220126", user.sign);
+  //　TODO: user情報ないときは全星座取得
+  const fetchedUranais = getUranais(
+    "20220126",
+    user.sign ? user.sign : "aries"
+  );
   return fetchedUranais;
 };
 
@@ -37,6 +42,8 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center">
+        <FormContainer />
+
         <div class="p-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-3">
           {data.map((uranai, index) => {
             const visualDate =
