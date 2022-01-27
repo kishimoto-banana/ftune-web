@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { registerUser } from "../firebase/firestore";
@@ -33,7 +33,7 @@ export default function UserContextComp({ children }) {
             setUser(signedUser);
           }
         } else {
-          setUser(null);
+          signInAnonymously(auth);
         }
       } catch (error) {
       } finally {
