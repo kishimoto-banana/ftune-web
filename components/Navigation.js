@@ -1,12 +1,20 @@
-const Navigation = () => {
+import { useState } from "react";
+
+export const Navigation = () => {
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+  };
+
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 border-b">
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 border-b">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" class="flex">
+        <a href="#" className="flex pr-8">
           <img src="/logo-wide.svg" alt="logo" className="h-10" />
         </a>
-
         <button
+          onClick={handleClick}
           data-collapse-toggle="mobile-menu"
           type="button"
           class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -39,7 +47,11 @@ const Navigation = () => {
             ></path>
           </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto pl-8" id="mobile-menu">
+        <div
+          className={`${
+            active ? "" : "hidden"
+          } w-full md:inline-flex md:flex-grow md:w-auto`}
+        >
           <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium">
             <li>
               <a
