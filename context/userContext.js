@@ -6,7 +6,7 @@ import { registerUser } from "../firebase/firestore";
 export const UserContext = createContext();
 
 export default function UserContextComp({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const [loadingUser, setLoadingUser] = useState(true); // Helpful, to update the UI accordingly.
 
   useEffect(() => {
