@@ -1,6 +1,6 @@
 import { format, parse } from "date-fns";
 import isValid from "date-fns/isValid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../context/userContext";
 import { getSign, updateUser } from "../firebase/firestore";
 import Form from "./Form";
@@ -8,16 +8,18 @@ import Form from "./Form";
 const initialGender = "女性";
 
 const FormContainer = () => {
-  const { user, setUser } = useUser();
+  const { user, setUser, loadingUser } = useUser();
 
-  const [birthday, setBirthday] = useState(
-    user.birthday ? format(user.birthday, "yyyy-MM-dd") : null
-  );
-  const [gender, setGender] = useState(
-    user.gender ? user.gender : initialGender
-  );
-
+  const [birthday, setBirthday] = useState();
+  const [gender, setGender] = useState(initialGender);
   const [inValidBirthDay, setInValidBirthDay] = useState(false);
+
+  useEffect(() => {
+    if (!loadingUser) {
+      setBirthday(format(user.birthday, "yyyy-MM-dd"));
+      setGender(user.gender);
+    }
+  }, [loadingUser, user]);
 
   const handleFormConfirm = async () => {
     const ParsedBirthday = parse(birthday, "yyyy-MM-dd", new Date());
