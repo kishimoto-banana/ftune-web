@@ -7,7 +7,7 @@ const Form = ({
   inValidBirthDay,
 }) => {
   return (
-    <form class="grid grid-cols-1 gap-2 pb-4">
+    <form class="grid grid-cols-1 gap-2 pb-4 pt-4">
       <label class="block">
         <span class="text-gray-700">生年月日</span>
         <input

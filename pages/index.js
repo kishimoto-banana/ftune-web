@@ -1,6 +1,7 @@
 import Head from "next/head";
 import FormContainer from "../components/FormContainer";
 import UranaiListContainer from "../components/UranaiListContainer";
+import Navigation from "../components/Navigation";
 
 // export async function getServerSideProps() {
 //   const uranais = await getUranais("20220126", "scorpio");
@@ -9,13 +10,14 @@ import UranaiListContainer from "../components/UranaiListContainer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col min-h-screen py-2">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navigation />
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center">
+      <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
         <FormContainer />
         <UranaiListContainer />
       </main>
