@@ -1,6 +1,4 @@
 import Head from "next/head";
-import FormContainer from "../components/FormContainer";
-import UranaiListContainer from "../components/UranaiListContainer";
 import Navigation from "../components/Navigation";
 
 // export async function getServerSideProps() {
