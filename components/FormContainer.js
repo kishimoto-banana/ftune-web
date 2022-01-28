@@ -15,7 +15,7 @@ const FormContainer = () => {
   const [inValidBirthDay, setInValidBirthDay] = useState(false);
 
   useEffect(() => {
-    if (!loadingUser) {
+    if (!loadingUser && user.birthday && user.gender) {
       setBirthday(format(user.birthday, "yyyy-MM-dd"));
       setGender(user.gender);
     }
