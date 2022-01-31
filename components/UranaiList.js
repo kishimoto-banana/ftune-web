@@ -26,8 +26,10 @@ const UranaiList = ({ uranais }) => {
               )}`;
         return (
           <Card
+            id={uranai.id}
             title={uranai.titleWithoutMedia}
             media={uranai.media}
+            url={uranai.url}
             body={uranai.body}
             frequency={uranai.frequency}
             type={uranai.type}
