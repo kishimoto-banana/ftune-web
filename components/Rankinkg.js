@@ -17,7 +17,7 @@ const Ranking = ({ ranking }) => {
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {item.sign}
             </h5>
-            <div class="flex flex-row">
+            <div className="flex flex-row">
               {item.score >= 10 ? (
                 <FaStar color="#ffca28" />
               ) : item.score >= 0 ? (
