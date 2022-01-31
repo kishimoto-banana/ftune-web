@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useSWR from "swr";
 import { useUser } from "../context/userContext";
-import { getUranais } from "../firebase/firestore";
+import { getUranais } from "../fetchData/clientApp";
 import Loading from "./Loading";
 import UranaiList from "./UranaiList";
 

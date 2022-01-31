@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { registerUser } from "../firebase/firestore";
+import { registerUser } from "../fetchData/clientApp";
 
 export const UserContext = createContext();
 

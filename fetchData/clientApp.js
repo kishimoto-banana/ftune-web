@@ -1,8 +1,9 @@
-import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import {
   addDoc,
   collection,
   doc,
+  enableMultiTabIndexedDbPersistence,
   getDoc,
   getDocs,
   getFirestore,
@@ -11,7 +12,6 @@ import {
   setDoc,
   Timestamp,
   updateDoc,
-  enableMultiTabIndexedDbPersistence,
 } from "firebase/firestore";
 
 const firestore = getFirestore();

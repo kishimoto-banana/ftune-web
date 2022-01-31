@@ -2,7 +2,7 @@ import { format, parse } from "date-fns";
 import isValid from "date-fns/isValid";
 import { useEffect, useState } from "react";
 import { useUser } from "../context/userContext";
-import { getSign, updateUser } from "../firebase/firestore";
+import { getSign, updateUser } from "../fetchData/clientApp";
 import Form from "./Form";
 
 const initialGender = "女性";
