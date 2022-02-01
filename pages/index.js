@@ -10,6 +10,7 @@ import RegisteredInfoContainer from "../components/RegisteredInfoContainer";
 import UranaiListContainer from "../components/UranaiListContainer";
 import { useUser } from "../context/userContext";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
+import TodayFortuneContainer from "../components/TodayFortuneContainer";
 
 export async function getServerSideProps() {
   const today = format(new Date(), "yyyyMMdd");
@@ -49,10 +50,14 @@ export default function Home({ ranking }) {
           </div>
         )}
 
+        <TodayFortuneContainer />
+
         {loadingUser ? (
           <Loading />
         ) : user.birthday ? (
-          <UranaiListContainer />
+          <>
+            <UranaiListContainer />
+          </>
         ) : (
           <RankingList ranking={ranking} />
         )}

@@ -6,10 +6,9 @@ import { getUranais } from "../fetchData/clientApp";
 import Loading from "./Loading";
 import UranaiList from "./UranaiList";
 
-const fetchUranais = async (user) => {
-  //　TODO: user情報ないときは全星座取得
+const fetchUranais = async (key, user) => {
   const today = format(new Date(), "yyyyMMdd");
-  const fetchedUranais = getUranais(today, user.sign ? user.sign : "aries");
+  const fetchedUranais = getUranais(today, user.sign);
   return fetchedUranais;
 };
 
@@ -22,7 +21,7 @@ const UranaiListContainer = () => {
   //   }
   // }, [loadingUser, user]);
 
-  const { data } = useSWR(user, fetchUranais);
+  const { data } = useSWR(["/firestore/uranais", user], fetchUranais);
 
   return <div>{data ? <UranaiList uranais={data} /> : <Loading />}</div>;
 };
