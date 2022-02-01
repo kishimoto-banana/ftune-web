@@ -8,7 +8,6 @@ export const getServerSideProps = async ({ query }) => {
 };
 
 const Uranai = ({ title, media, url, body, imageUrl }) => {
-  console.log(title);
   return (
     <div className="flex flex-col min-h-screen py-2">
       <Head>

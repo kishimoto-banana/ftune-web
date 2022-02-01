@@ -16,11 +16,11 @@ const fetchUranais = async (user) => {
 const UranaiListContainer = () => {
   const { loadingUser, user } = useUser();
 
-  useEffect(() => {
-    if (!loadingUser) {
-      console.log(user);
-    }
-  }, [loadingUser, user]);
+  // useEffect(() => {
+  //   if (!loadingUser) {
+  //     console.log(user);
+  //   }
+  // }, [loadingUser, user]);
 
   const { data } = useSWR(user, fetchUranais);
 

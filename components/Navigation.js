@@ -6,8 +6,6 @@ export const Navigation = () => {
   const [active, setActive] = useState(false);
   const router = useRouter();
 
-  console.log(router.asPath);
-
   const handleClick = () => {
     setActive(!active);
   };
