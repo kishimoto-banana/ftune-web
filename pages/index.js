@@ -2,15 +2,14 @@ import format from "date-fns/format";
 import Head from "next/head";
 import { useState } from "react";
 import FormContainer from "../components/FormContainer";
-import Loading from "../components/Loading";
 import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
 import RankingList from "../components/Rankinkg";
 import RegisteredInfoContainer from "../components/RegisteredInfoContainer";
+import TodayFortuneContainer from "../components/TodayFortuneContainer";
 import UranaiListContainer from "../components/UranaiListContainer";
 import { useUser } from "../context/userContext";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
-import TodayFortuneContainer from "../components/TodayFortuneContainer";
 
 export async function getServerSideProps() {
   const today = format(new Date(), "yyyyMMdd");
@@ -50,12 +49,9 @@ export default function Home({ ranking }) {
           </div>
         )}
 
-        <TodayFortuneContainer />
-
-        {loadingUser ? (
-          <Loading />
-        ) : user.birthday ? (
+        {loadingUser ? null : user.birthday ? (
           <>
+            <TodayFortuneContainer />
             <UranaiListContainer />
           </>
         ) : (
