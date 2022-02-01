@@ -7,41 +7,44 @@ const Form = ({
   inValidBirthDay,
 }) => {
   return (
-    <form className="grid grid-cols-1 gap-2 pb-4 pt-4">
-      <label className="block">
-        <span className="text-gray-700">生年月日</span>
-        <input
-          type="date"
-          value={birthday}
-          onChange={handleBirthdayChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        />
-        {inValidBirthDay && (
-          <p className="mt-2 text-sm text-red-600 dark:text-red-500">
-            生年月日が正しくなさそうです
-          </p>
-        )}
-      </label>
-      <label className="block">
-        <span className="text-gray-700">性別</span>
-        <select
-          value={gender}
-          onChange={handleGenderChange}
-          className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+    <div className="flex flex-col items-center justify-center">
+      <p>生年月日と性別を入力するとあなたへの占いが表示されます</p>
+      <form className="grid grid-cols-1 gap-2 pb-4 pt-4">
+        <label className="block">
+          <span className="text-gray-700">生年月日</span>
+          <input
+            type="date"
+            value={birthday}
+            onChange={handleBirthdayChange}
+            className="self-center mt-1 block w-48 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+          {inValidBirthDay && (
+            <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              生年月日が正しくなさそうです
+            </p>
+          )}
+        </label>
+        <label className="block">
+          <span className="text-gray-700">性別</span>
+          <select
+            value={gender}
+            onChange={handleGenderChange}
+            className="block mt-1 w-48 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          >
+            <option value="女性">女性</option>
+            <option value="男性">男性</option>
+            <option value="無回答">選択しない</option>
+          </select>
+        </label>
+        <button
+          type="button"
+          onClick={handleFormConfirm}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          <option value="女性">女性</option>
-          <option value="男性">男性</option>
-          <option value="無回答">選択しない</option>
-        </select>
-      </label>
-      <button
-        type="button"
-        onClick={handleFormConfirm}
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        送信
-      </button>
-    </form>
+          送信
+        </button>
+      </form>
+    </div>
   );
 };
 
