@@ -1,9 +1,12 @@
 import format from "date-fns/format";
 import Head from "next/head";
+import { useState } from "react";
 import FormContainer from "../components/FormContainer";
 import Loading from "../components/Loading";
+import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
 import RankingList from "../components/Rankinkg";
+import RegisteredInfoContainer from "../components/RegisteredInfoContainer";
 import UranaiListContainer from "../components/UranaiListContainer";
 import { useUser } from "../context/userContext";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
@@ -17,6 +20,7 @@ export async function getServerSideProps() {
 
 export default function Home({ ranking }) {
   const { user, loadingUser } = useUser();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen py-2">
@@ -27,10 +31,27 @@ export default function Home({ ranking }) {
       <Navigation />
 
       <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
-        <FormContainer />
+        {!loadingUser && user.birthday ? (
+          <div>
+            <RegisteredInfoContainer birthday={user.birthday} />
+            <button
+              className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => setShowModal(true)}
+            >
+              生年月日を変更する
+            </button>
+            {showModal ? <Modal setShowModal={setShowModal} /> : null}
+          </div>
+        ) : (
+          <div>
+            <p>生年月日を入力するとあなたへの占いが表示されます</p>
+            <FormContainer />
+          </div>
+        )}
+
         {loadingUser ? (
           <Loading />
-        ) : user.birthday && user.gender ? (
+        ) : user.birthday ? (
           <UranaiListContainer />
         ) : (
           <RankingList ranking={ranking} />

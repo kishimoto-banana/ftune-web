@@ -5,23 +5,21 @@ import { useUser } from "../context/userContext";
 import { getSign, updateUser } from "../fetchData/clientApp";
 import Form from "./Form";
 
-const initialGender = "女性";
-
-const FormContainer = () => {
+const FormContainer = ({ setShowModal }) => {
   const { user, setUser, loadingUser } = useUser();
 
   const [birthday, setBirthday] = useState();
-  const [gender, setGender] = useState(initialGender);
   const [inValidBirthDay, setInValidBirthDay] = useState(false);
 
   useEffect(() => {
-    if (!loadingUser && user.birthday && user.gender) {
+    if (!loadingUser && user.birthday) {
       setBirthday(format(user.birthday, "yyyy-MM-dd"));
-      setGender(user.gender);
     }
   }, [loadingUser, user]);
 
   const handleFormConfirm = async () => {
+    setShowModal && setShowModal(false);
+
     const ParsedBirthday = parse(birthday, "yyyy-MM-dd", new Date());
     const isBirthDayValid = isValid(ParsedBirthday);
     if (!isBirthDayValid) {
@@ -32,8 +30,8 @@ const FormContainer = () => {
     const sign = await getSign(formatDate);
     const updateParams = {
       birthday: ParsedBirthday,
-      gender: gender,
       sign: sign,
+      gender: "無回答",
     };
     await updateUser(user.id, updateParams);
     setUser({ ...user, ...updateParams });
@@ -44,16 +42,10 @@ const FormContainer = () => {
     setBirthday(e.target.value);
   };
 
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
-  };
-
   return (
     <Form
       birthday={birthday}
       handleBirthdayChange={handleBirthdayChange}
-      gender={gender}
-      handleGenderChange={handleGenderChange}
       handleFormConfirm={handleFormConfirm}
       setInValidBirthDay={setInValidBirthDay}
       inValidBirthDay={inValidBirthDay}

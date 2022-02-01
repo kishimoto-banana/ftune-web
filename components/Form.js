@@ -1,14 +1,11 @@
 const Form = ({
   birthday,
   handleBirthdayChange,
-  gender,
-  handleGenderChange,
   handleFormConfirm,
   inValidBirthDay,
 }) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <p>生年月日と性別を入力するとあなたへの占いが表示されます</p>
       <form className="grid grid-cols-1 gap-2 pb-4 pt-4">
         <label className="block">
           <span className="text-gray-700">生年月日</span>
@@ -23,18 +20,6 @@ const Form = ({
               生年月日が正しくなさそうです
             </p>
           )}
-        </label>
-        <label className="block">
-          <span className="text-gray-700">性別</span>
-          <select
-            value={gender}
-            onChange={handleGenderChange}
-            className="block mt-1 w-48 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          >
-            <option value="女性">女性</option>
-            <option value="男性">男性</option>
-            <option value="無回答">選択しない</option>
-          </select>
         </label>
         <button
           type="button"
