@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import React, { useEffect } from "react";
 import useSWR from "swr";
 import { useUser } from "../context/userContext";
@@ -7,10 +8,8 @@ import UranaiList from "./UranaiList";
 
 const fetchUranais = async (user) => {
   //　TODO: user情報ないときは全星座取得
-  const fetchedUranais = getUranais(
-    "20220126",
-    user.sign ? user.sign : "aries"
-  );
+  const today = format(new Date(), "yyyyMMdd");
+  const fetchedUranais = getUranais(today, user.sign ? user.sign : "aries");
   return fetchedUranais;
 };
 

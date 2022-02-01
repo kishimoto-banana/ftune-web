@@ -1,10 +1,12 @@
+import format from "date-fns/format";
 import Head from "next/head";
 import Navigation from "../components/Navigation";
 import RankingList from "../components/Rankinkg";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
 
 export async function getServerSideProps() {
-  const analyzedUranais = await getAnalyzedUranai("20220126");
+  const today = format(new Date(), "yyyyMMdd");
+  const analyzedUranais = await getAnalyzedUranai(today);
   const ranking = analyzedUranais.sort((a, b) => b.score - a.score);
   return { props: { ranking } };
 }
