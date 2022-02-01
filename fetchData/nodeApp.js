@@ -35,7 +35,19 @@ export const getUranai = async (date, sign) => {
         created_at: createdAt,
       };
     });
-    return uranais;
+
+    const uranaisSplitted = uranais.map((uranai) => {
+      const media_title = uranai.title.split("-");
+      const media = media_title[0].trim();
+      const title = media_title[1].trim();
+      return { ...uranai, titleWithoutMedia: title, media: media };
+    });
+
+    const uranaisExistBody = uranaisSplitted.filter((uranai) => {
+      return uranai.body !== "";
+    });
+
+    return uranaisExistBody;
   }
 };
 
