@@ -15,7 +15,7 @@ import {
 } from "firebase/firestore";
 
 const firestore = getFirestore();
-enableMultiTabIndexedDbPersistence(firestore);
+// enableMultiTabIndexedDbPersistence(firestore);
 
 const ImageUrlBase = "https://d173y4sbgdpniu.cloudfront.net";
 
