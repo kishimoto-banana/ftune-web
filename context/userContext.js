@@ -9,38 +9,51 @@ export default function UserContextComp({ children }) {
   const [user, setUser] = useState();
   const [loadingUser, setLoadingUser] = useState(true); // Helpful, to update the UI accordingly.
 
+  const handleUser = async (uid) => {
+    const firestore = getFirestore();
+    const docRef = doc(firestore, "users", uid);
+    const userDoc = await getDoc(docRef);
+
+    if (!userDoc.exists()) {
+      console.log("userDoc無し");
+      registerUser({ id: uid });
+      setUser({ id: uid });
+    } else {
+      console.log("userDoc有り");
+      const signedUser = {
+        id: uid,
+        ...userDoc.data(),
+      };
+      if (signedUser.birthday) {
+        signedUser.birthday = signedUser.birthday.toDate();
+      }
+      console.log("setuser前", signedUser);
+      setUser(signedUser);
+    }
+  };
+
   useEffect(() => {
     const auth = getAuth();
     const unsubscriber = onAuthStateChanged(auth, async (user) => {
       try {
         if (user) {
+          console.log("認証済パターン");
           const { uid } = user;
-          const firestore = getFirestore();
-          const docRef = doc(firestore, "users", uid);
-          const userDoc = await getDoc(docRef);
-
-          if (!userDoc.exists()) {
-            registerUser({ id: uid });
-            setUser({ id: uid });
-          } else {
-            const signedUser = {
-              id: uid,
-              ...userDoc.data(),
-            };
-            if (signedUser.birthday) {
-              signedUser.birthday = signedUser.birthday.toDate();
-            }
-            setUser(signedUser);
-          }
+          await handleUser(uid);
         } else {
-          signInAnonymously(auth);
+          console.log("signInAnonymouslyのパターン");
+          signInAnonymously(auth).then((result) => {
+            console.log("signInAnonymouslyの内部", result);
+            const { uid } = result.user;
+            handleUser(uid);
+          });
         }
       } catch (error) {
+        console.log("err", error);
       } finally {
         setLoadingUser(false);
       }
     });
-
     return () => unsubscriber();
   }, []);
 
