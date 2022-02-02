@@ -42,8 +42,11 @@ const TodayFortune = ({ keywords, score }) => {
       </div>
 
       <div className="flex flex-row">
-        {keywords.map((keyword) => (
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        {keywords.map((keyword, index) => (
+          <span
+            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            key={index}
+          >
             #{keyword}
           </span>
         ))}

@@ -4,8 +4,8 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 const Ranking = ({ ranking }) => {
   return (
     <div>
-      {ranking.map((item) => (
-        <Link href={`/${item.sign}`}>
+      {ranking.map((item, index) => (
+        <Link href={`/${item.sign}`} key={index}>
           <a className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
             <img
               className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
@@ -54,8 +54,11 @@ const Ranking = ({ ranking }) => {
                 )}
               </div>
 
-              {item.keywords.map((keyword) => (
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              {item.keywords.map((keyword, index) => (
+                <span
+                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                  key={keyword + index.toString()}
+                >
                   #{keyword}
                 </span>
               ))}
