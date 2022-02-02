@@ -40,25 +40,14 @@ export default function UserContextComp({ children }) {
           console.log("認証済パターン");
           const { uid } = user;
           await handleUser(uid);
+          setLoadingUser(false);
         } else {
           console.log("signInAnonymouslyのパターン");
-          signInAnonymously(auth)
-            .then(async (result) => {
-              console.log("signInAnonymouslyの内部", result);
-              const { uid } = result.user;
-              await handleUser(uid);
-            })
-            .catch((error) => {
-              console.log("signInAnonymouslyのエラー");
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-            });
+          signInAnonymously(auth);
         }
       } catch (error) {
         console.log("err", error);
       } finally {
-        setLoadingUser(false);
       }
     });
     return () => unsubscriber();
