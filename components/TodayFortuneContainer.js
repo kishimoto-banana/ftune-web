@@ -16,7 +16,6 @@ const TodayFortuneContainer = () => {
   const { loadingUser, user } = useUser();
 
   const { data } = useSWR(["/firestore/analyzed_uranais", user], fetchAnalyze);
-  console.log(data);
   return (
     <div>
       {data ? (

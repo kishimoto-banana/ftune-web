@@ -22,8 +22,6 @@ export default function Home({ ranking }) {
   const { user, loadingUser } = useUser();
   const [showModal, setShowModal] = useState(false);
 
-  console.log(loadingUser, user);
-
   return (
     <div className="flex flex-col min-h-screen py-2">
       <Head>

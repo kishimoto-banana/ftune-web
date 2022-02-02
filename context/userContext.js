@@ -15,11 +15,9 @@ export default function UserContextComp({ children }) {
     const userDoc = await getDoc(docRef);
 
     if (!userDoc.exists()) {
-      console.log("userDoc無し");
       await registerUser({ id: uid });
       setUser({ id: uid });
     } else {
-      console.log("userDoc有り");
       const signedUser = {
         id: uid,
         ...userDoc.data(),
@@ -27,7 +25,6 @@ export default function UserContextComp({ children }) {
       if (signedUser.birthday) {
         signedUser.birthday = signedUser.birthday.toDate();
       }
-      console.log("setuser前", signedUser);
       setUser(signedUser);
     }
   };
@@ -37,16 +34,13 @@ export default function UserContextComp({ children }) {
     const unsubscriber = onAuthStateChanged(auth, async (user) => {
       try {
         if (user) {
-          console.log("認証済パターン");
           const { uid } = user;
           await handleUser(uid);
           setLoadingUser(false);
         } else {
-          console.log("signInAnonymouslyのパターン");
           signInAnonymously(auth);
         }
       } catch (error) {
-        console.log("err", error);
       } finally {
       }
     });
