@@ -1,6 +1,7 @@
 import format from "date-fns/format";
 import Head from "next/head";
 import { useState } from "react";
+import { FiArrowRight } from "react-icons/fi";
 import FormContainer from "../components/FormContainer";
 import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
@@ -34,13 +35,16 @@ export default function Home({ ranking }) {
 
       <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
         {!loadingUser && user.birthday ? (
-          <div>
+          <div className="flex flex-col justify-center items-center pt-4">
             <RegisteredInfoContainer birthday={user.birthday} />
             <button
-              className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={() => setShowModal(true)}
+              className="pb-1 ml-auto text-xs text-blue-500 hover:text-blue-600"
             >
-              生年月日を変更する
+              <div className="flex flex-row justify-center items-center gap-0.5">
+                生年月日を変更する
+                <FiArrowRight />
+              </div>
             </button>
             {showModal ? <Modal setShowModal={setShowModal} /> : null}
           </div>
