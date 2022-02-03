@@ -26,14 +26,14 @@ export default function Home({ ranking }) {
   console.log(user);
 
   return (
-    <div className="flex flex-col min-h-screen py-2">
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
 
-      <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
+      <main className="flex flex-col items-center w-full">
         {!loadingUser && user.birthday ? (
           <div className="flex flex-col justify-center items-center pt-4">
             <RegisteredInfoContainer birthday={user.birthday} />

@@ -4,6 +4,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    maxWidth: {
+      uranaiCard: "240px",
+    },
     extend: {},
   },
   plugins: [require("@tailwindcss/forms")],

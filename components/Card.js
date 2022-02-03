@@ -27,31 +27,32 @@ const Card = ({
       as={`/uranai/${id}`}
     >
       <a>
-        <div className="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className="max-w-uranaiCard bg-white rounded-lg border border-gray-200 shadow-md">
           <img
-            className="rounded-t-lg object-cover h-32 w-96"
+            className="rounded-t-lg object-cover h-24 md:h-40 w-full"
             src={imageUrl}
             alt=""
           />
-          <div className="p-2">
-            <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="p-2 md:p-4">
+            <h5 className="text-sm md:text-lg font-bold truncate text-gray-900">
               {title}
             </h5>
-
-            <p className="p-1 text-sm text-left font-normal text-gray-400 dark:text-gray-400">
+            <p className="text-xs md:text-sm text-left font-normal text-gray-400">
               {media}
             </p>
-            <p className="truncate mb-1 font-normal text-gray-700 dark:text-gray-400">
+
+            <p className="pt-1 text-sm md:text-md truncate mb-1 font-normal text-gray-700">
               {body}
             </p>
-            <p className="p-1 text-sm font-normal text-gray-700 dark:text-gray-400">
+
+            <p className="pt-2 text-xs md:text-sm font-normal text-gray-700">
               {date}
             </p>
-            <div className="px-6 pt-4">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div className="pt-1">
+              <span className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs md:text-sm font-semibold text-gray-700 mr-1">
                 #{FREQ_EN_JA[frequency]}
               </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs md:text-sm font-semibold text-gray-700">
                 #{TYPE_EN_JA[type]}
               </span>
             </div>

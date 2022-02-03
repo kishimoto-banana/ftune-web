@@ -4,7 +4,7 @@ import Card from "../components/Card";
 
 const UranaiList = ({ uranais }) => {
   return (
-    <div className="p-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+    <div className="py-10 px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {uranais.map((uranai, index) => {
         const visualDate =
           typeof uranai.from_date === "undefined"
