@@ -1,59 +1,71 @@
+import format from "date-fns/format";
+import ja from "date-fns/locale/ja";
 import Link from "next/link";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { ASTRO_EN_JA } from "../lib/constants";
 
 const Ranking = ({ ranking }) => {
+  const formattedToday = format(new Date(), "M月d日", { locale: ja });
   return (
     <div>
+      <h3 className="font-medium pb-2 text-xl">
+        {formattedToday}の運勢ランキング
+      </h3>
       {ranking.map((item, index) => (
         <Link href={`/${item.sign}`} key={index}>
-          <a className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img
-              className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              src={item.imageUrl}
-              alt=""
-            />
-            <div className="flex flex-col justify-between p-4 leading-normal">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {item.sign}
-              </h5>
-              <div className="flex flex-row">
-                {item.score >= 10 ? (
-                  <FaStar color="#ffca28" />
-                ) : item.score >= 0 ? (
-                  <FaStarHalfAlt color="#ffca28" />
-                ) : (
-                  <FaRegStar color="#ffca28" />
-                )}
-                {item.score >= 30 ? (
-                  <FaStar color="#ffca28" />
-                ) : item.score >= 20 ? (
-                  <FaStarHalfAlt color="#ffca28" />
-                ) : (
-                  <FaRegStar color="#ffca28" />
-                )}
-                {item.score >= 50 ? (
-                  <FaStar color="#ffca28" />
-                ) : item.score >= 40 ? (
-                  <FaStarHalfAlt color="#ffca28" />
-                ) : (
-                  <FaRegStar color="#ffca28" />
-                )}
-                {item.score >= 70 ? (
-                  <FaStar color="#ffca28" />
-                ) : item.score >= 60 ? (
-                  <FaStarHalfAlt color="#ffca28" />
-                ) : (
-                  <FaRegStar color="#ffca28" />
-                )}
-                {item.score >= 90 ? (
-                  <FaStar color="#ffca28" />
-                ) : item.score >= 80 ? (
-                  <FaStarHalfAlt color="#ffca28" />
-                ) : (
-                  <FaRegStar color="#ffca28" />
-                )}
+          <a className="md:px-5 flex flex-col md:flex-row items-center bg-white rounded-lg border shadow-md hover:bg-gray-100 mb-0.5">
+            <div className="flex flex-row justify-center items-center">
+              <p className="pr-3 text-2xl font-bold">{index + 1}</p>
+              <img
+                className="object-contain h-20 w-20"
+                src={item.imageUrl}
+                alt=""
+              />
+              <div className="flex flex-col justify-between p-4 leading-normal">
+                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {ASTRO_EN_JA[item.sign]}
+                </h5>
+                <div className="flex flex-row ">
+                  {item.score >= 10 ? (
+                    <FaStar color="#ffca28" size={20} />
+                  ) : item.score >= 0 ? (
+                    <FaStarHalfAlt color="#ffca28" size={20} />
+                  ) : (
+                    <FaRegStar color="#ffca28" size={20} />
+                  )}
+                  {item.score >= 30 ? (
+                    <FaStar color="#ffca28" size={20} />
+                  ) : item.score >= 20 ? (
+                    <FaStarHalfAlt color="#ffca28" size={20} />
+                  ) : (
+                    <FaRegStar color="#ffca28" size={20} />
+                  )}
+                  {item.score >= 50 ? (
+                    <FaStar color="#ffca28" size={20} />
+                  ) : item.score >= 40 ? (
+                    <FaStarHalfAlt color="#ffca28" size={20} />
+                  ) : (
+                    <FaRegStar color="#ffca28" size={20} />
+                  )}
+                  {item.score >= 70 ? (
+                    <FaStar color="#ffca28" size={20} />
+                  ) : item.score >= 60 ? (
+                    <FaStarHalfAlt color="#ffca28" size={20} />
+                  ) : (
+                    <FaRegStar color="#ffca28" size={20} />
+                  )}
+                  {item.score >= 90 ? (
+                    <FaStar color="#ffca28" size={20} />
+                  ) : item.score >= 80 ? (
+                    <FaStarHalfAlt color="#ffca28" size={20} />
+                  ) : (
+                    <FaRegStar color="#ffca28" size={20} />
+                  )}
+                </div>
               </div>
+            </div>
 
+            <div className="flex flex-row gap-1">
               {item.keywords.map((keyword, index) => (
                 <span
                   className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"

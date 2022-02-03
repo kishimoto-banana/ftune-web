@@ -45,8 +45,10 @@ export default function Home({ ranking }) {
             {showModal ? <Modal setShowModal={setShowModal} /> : null}
           </div>
         ) : (
-          <div>
-            <p>生年月日を入力するとあなたへの占いが表示されます</p>
+          <div className="flex flex-col justify-center items-center pt-4">
+            <p className="text-justify">生年月日を入力すると</p>
+            <p className="text-justify">あなたへの占いが表示されます</p>
+
             <FormContainer />
           </div>
         )}
@@ -57,11 +59,13 @@ export default function Home({ ranking }) {
             <UranaiListContainer />
           </>
         ) : (
-          <RankingList ranking={ranking} />
+          <div className="pt-5">
+            <RankingList ranking={ranking} />
+          </div>
         )}
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
+      <footer className="flex items-center justify-center w-full h-12 mt-4 border-t">
         <p className="flex items-center justify-center">2022 &copy; bootch</p>
       </footer>
     </div>

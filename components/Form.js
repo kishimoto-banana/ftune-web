@@ -38,11 +38,11 @@ const Form = ({
   }
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <form className="grid grid-cols-1 gap-2 pb-4 pt-4">
+    <div className="flex flex-col items-center justify-center pt-4 pb-4">
+      <form>
         <label className="block">
           <span className="text-gray-700">生年月日</span>
-          <div className="flex flex-row gap-1 items-center justify-center">
+          <div className="flex flex-row gap-1 items-center justify-center pt-1">
             <select
               value={year}
               onChange={handleYear}
@@ -54,7 +54,7 @@ const Form = ({
                 </option>
               ))}
             </select>
-            <label className="text-gray-500 font-bold">年</label>
+            <label className="text-gray-700 font-bold">年</label>
             <select
               value={month}
               onChange={handleMonth}
@@ -66,7 +66,7 @@ const Form = ({
                 </option>
               ))}
             </select>
-            <label className="text-gray-500 font-bold">月</label>
+            <label className="text-gray-700 font-bold">月</label>
             <select
               value={day}
               onChange={handleDay}
@@ -78,13 +78,13 @@ const Form = ({
                 </option>
               ))}
             </select>
-            <label className="text-gray-500 font-bold">日</label>
+            <label className="text-gray-700 font-bold">日</label>
           </div>
         </label>
         <button
           type="button"
           onClick={handleFormConfirm}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="mt-2 text-white bg-pink-500 hover:bg-pink-600 focus:ring-2 focus:ring-pink-300 font-medium rounded-full text-md sm:w-auto px-10 py-2.5 text-center"
         >
           送信
         </button>
