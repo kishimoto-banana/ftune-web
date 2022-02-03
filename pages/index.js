@@ -33,7 +33,7 @@ export default function Home({ ranking }) {
       </Head>
       <Navigation />
 
-      <main className="flex flex-col items-center w-full">
+      <main className="flex flex-col items-center w-full text-center">
         {!loadingUser && user.birthday ? (
           <div className="flex flex-col justify-center items-center pt-4">
             <RegisteredInfoContainer birthday={user.birthday} />
