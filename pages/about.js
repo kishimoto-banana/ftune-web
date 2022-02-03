@@ -15,7 +15,7 @@ const About = () => {
       </Head>
       <Navigation />
 
-      <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
+      <main className="flex flex-col items-center w-full flex-1 px-10 pt-4 text-center">
         <p>Ftuneとはね…!?!?!?????!??!!!?</p>
       </main>
     </div>
