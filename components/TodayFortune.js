@@ -5,7 +5,7 @@ import Starts from "./Stars";
 const TodayFortune = ({ keywords, score }) => {
   const formattedToday = format(new Date(), "M月d日", { locale: ja });
   return (
-    <div className="flex flex-col justify-center items-center bg-rose-100 rounded-lg border  p-5 md:px-10 md:pt-2 md:pb-5 mt-2">
+    <div className="flex flex-col justify-center items-center bg-rose-100 rounded-lg border p-5 md:px-10 md:pt-2 md:pb-5 mt-2">
       <h3 className="font-medium pb-4 text-xl">{formattedToday}の運勢</h3>
       <Starts score={score} />
       <div className="flex flex-row pt-2">
