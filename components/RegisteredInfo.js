@@ -1,7 +1,7 @@
 const RegisteredInfo = ({ birthday }) => {
   return (
     <div className="flex justify-center">
-      <p>{birthday}生まれのあなた</p>
+      <h2 className="text-xl">{birthday}生まれのあなた</h2>
     </div>
   );
 };

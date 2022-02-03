@@ -1,8 +1,8 @@
 import format from "date-fns/format";
 import ja from "date-fns/locale/ja";
 import Link from "next/link";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { ASTRO_EN_JA } from "../lib/constants";
+import Stars from "./Stars";
 
 const Ranking = ({ ranking }) => {
   const formattedToday = format(new Date(), "M月d日", { locale: ja });
@@ -25,43 +25,7 @@ const Ranking = ({ ranking }) => {
                 <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {ASTRO_EN_JA[item.sign]}
                 </h5>
-                <div className="flex flex-row ">
-                  {item.score >= 10 ? (
-                    <FaStar color="#ffca28" size={20} />
-                  ) : item.score >= 0 ? (
-                    <FaStarHalfAlt color="#ffca28" size={20} />
-                  ) : (
-                    <FaRegStar color="#ffca28" size={20} />
-                  )}
-                  {item.score >= 30 ? (
-                    <FaStar color="#ffca28" size={20} />
-                  ) : item.score >= 20 ? (
-                    <FaStarHalfAlt color="#ffca28" size={20} />
-                  ) : (
-                    <FaRegStar color="#ffca28" size={20} />
-                  )}
-                  {item.score >= 50 ? (
-                    <FaStar color="#ffca28" size={20} />
-                  ) : item.score >= 40 ? (
-                    <FaStarHalfAlt color="#ffca28" size={20} />
-                  ) : (
-                    <FaRegStar color="#ffca28" size={20} />
-                  )}
-                  {item.score >= 70 ? (
-                    <FaStar color="#ffca28" size={20} />
-                  ) : item.score >= 60 ? (
-                    <FaStarHalfAlt color="#ffca28" size={20} />
-                  ) : (
-                    <FaRegStar color="#ffca28" size={20} />
-                  )}
-                  {item.score >= 90 ? (
-                    <FaStar color="#ffca28" size={20} />
-                  ) : item.score >= 80 ? (
-                    <FaStarHalfAlt color="#ffca28" size={20} />
-                  ) : (
-                    <FaRegStar color="#ffca28" size={20} />
-                  )}
-                </div>
+                <Stars score={item.score} size={20} />
               </div>
             </div>
 
