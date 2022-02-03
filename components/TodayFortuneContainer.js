@@ -18,11 +18,16 @@ const TodayFortuneContainer = () => {
   const { data } = useSWR(["/firestore/analyzed_uranais", user], fetchAnalyze);
   return (
     <div>
-      {data ? (
+      {/* {data ? (
         <TodayFortune keywords={data.keywords} score={data.score} />
       ) : (
         <Loading />
-      )}
+      )} */}
+      <TodayFortune
+        keywords={data ? data.keywords : null}
+        score={data ? data.score : null}
+        loading={data ? false : true}
+      />
     </div>
   );
 };
