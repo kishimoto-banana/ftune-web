@@ -29,7 +29,7 @@ const Ranking = ({ ranking }) => {
               </div>
             </div>
 
-            <div className="flex flex-row gap-1">
+            <div className="flex flex-row gap-0.5">
               {item.keywords.map((keyword, index) => (
                 <span
                   className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
