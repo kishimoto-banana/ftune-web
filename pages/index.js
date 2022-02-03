@@ -46,8 +46,8 @@ export default function Home({ ranking }) {
           </div>
         ) : (
           <div className="flex flex-col justify-center items-center pt-4">
-            <p className="text-justify">生年月日を入力すると</p>
-            <p className="text-justify">あなたへの占いが表示されます</p>
+            <p className="text-justify text-xl">生年月日を入力すると</p>
+            <p className="text-justify text-xl">あなたへの占いが表示されます</p>
 
             <FormContainer />
           </div>
