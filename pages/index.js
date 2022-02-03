@@ -70,7 +70,7 @@ export default function Home({ ranking }) {
       </main>
 
       <footer className="flex items-center justify-center w-full h-12 mt-4 border-t">
-        <p className="flex items-center justify-center">2022 &copy; bootch</p>
+        <p className="flex items-center justify-center">&copy; bootch</p>
       </footer>
     </div>
   );
