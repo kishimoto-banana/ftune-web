@@ -29,7 +29,7 @@ const Card = ({
       <a>
         <div className="max-w-uranaiCard bg-white rounded-lg border border-gray-200 shadow-md">
           <img
-            className="rounded-t-lg object-cover h-24 md:h-40 w-full"
+            className="rounded-t-lg object-cover h-24 md:h-32 w-full"
             src={imageUrl}
             alt=""
           />
