@@ -1,11 +1,14 @@
-import "../styles/globals.css";
 import "../firebase/clientApp";
+import "../styles/globals.css";
+import Layout from "../components/Layout";
 import UserProvider from "../context/userContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </UserProvider>
   );
 }

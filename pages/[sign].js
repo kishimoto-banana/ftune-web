@@ -1,6 +1,5 @@
 import format from "date-fns/format";
 import Head from "next/head";
-import Navigation from "../components/Navigation";
 import UranaiList from "../components/UranaiList";
 import { getUranai } from "../fetchData/nodeApp";
 import { ASTRO_EN_JA } from "../lib/constants";
@@ -16,19 +15,15 @@ export const getServerSideProps = async ({ params }) => {
 
 const signSpecificUranai = ({ sign, uranais }) => {
   return (
-    <div className="flex flex-col min-h-screen py-2">
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{ASTRO_EN_JA[sign]}の占い</title>
       </Head>
-      <Navigation />
 
-      <main className="flex flex-col items-center w-full text-center">
-        <h2 className="text-justify text-xl pt-4">{ASTRO_EN_JA[sign]}の占い</h2>
-        <div className="mt-4 mb-10">
-          <UranaiList uranais={uranais} />
-        </div>
-      </main>
+      <h2 className="text-xl pt-4">{ASTRO_EN_JA[sign]}の占い</h2>
+      <div className="mt-4 mb-10">
+        <UranaiList uranais={uranais} />
+      </div>
     </div>
   );
 };

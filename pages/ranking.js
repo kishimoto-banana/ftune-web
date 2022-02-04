@@ -1,6 +1,5 @@
 import format from "date-fns/format";
 import Head from "next/head";
-import Navigation from "../components/Navigation";
 import RankingList from "../components/Rankinkg";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
 
@@ -13,16 +12,13 @@ export async function getServerSideProps() {
 
 const Ranking = ({ ranking }) => {
   return (
-    <div className="flex flex-col min-h-screen py-2">
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>運勢ランキング</title>
       </Head>
-      <Navigation />
-
-      <main className="flex flex-col items-center w-full flex-1 px-10 pt-4 text-center">
+      <div className="pt-4">
         <RankingList ranking={ranking} />
-      </main>
+      </div>
     </div>
   );
 };
