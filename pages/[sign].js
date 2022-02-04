@@ -1,13 +1,13 @@
 import format from "date-fns/format";
 import Head from "next/head";
 import UranaiList from "../components/UranaiList";
-import { getUranai } from "../fetchData/nodeApp";
+import { getUranais } from "../fetchData/nodeApp";
 import { ASTRO_EN_JA } from "../lib/constants";
 
 export const getServerSideProps = async ({ params }) => {
   const { sign } = params;
   const today = format(new Date(), "yyyyMMdd");
-  const uranais = await getUranai(today, sign);
+  const uranais = await getUranais(today, sign);
   return {
     props: { sign: sign, uranais: uranais },
   };

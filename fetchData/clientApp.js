@@ -26,6 +26,8 @@ const _getUranais = async (date, sign, previousFetchedAt) => {
 
   const uranais = querySnapshot.docs.map((doc) => ({
     id: doc.id,
+    sign: sign,
+    fetchDate: date,
     ...doc.data(),
   }));
 

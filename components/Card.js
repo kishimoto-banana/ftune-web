@@ -8,23 +8,27 @@ const Card = ({
   media,
   body,
   frequency,
+  sign,
   type,
   date,
+  fetchDate,
   imageUrl,
 }) => {
   return (
     <Link
       href={{
-        pathname: `/uranai/${id}`,
+        pathname: `/uranai/${fetchDate}-${sign}-${id}`,
         query: {
           title: title,
           media: media,
           url: url,
           body: body,
+          date: date,
           imageUrl: imageUrl,
+          sign: sign,
         },
       }}
-      as={`/uranai/${id}`}
+      as={`/uranai/${fetchDate}-${sign}-${id}`}
     >
       <a>
         <div className="max-w-uranaiCard bg-white rounded-lg border border-gray-200 shadow-md">

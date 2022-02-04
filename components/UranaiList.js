@@ -31,9 +31,11 @@ const UranaiList = ({ uranais }) => {
             media={uranai.media}
             url={uranai.url}
             body={uranai.body}
+            sign={uranai.sign}
             frequency={uranai.frequency}
             type={uranai.type}
             date={visualDate}
+            fetchDate={uranai.fetchDate}
             imageUrl={uranai.imageUrl}
             key={index}
           />

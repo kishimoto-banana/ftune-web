@@ -22,7 +22,7 @@ export const getAnalyzedUranai = async (date) => {
   return analyzedUranais;
 };
 
-export const getUranai = async (date, sign) => {
+export const getUranais = async (date, sign) => {
   const collectionRef = db.collection("uranais").doc(date).collection(sign);
   const snapshot = await collectionRef.orderBy("created_at", "desc").get();
 
@@ -49,5 +49,27 @@ export const getUranai = async (date, sign) => {
     });
 
     return uranaisExistBody;
+  }
+};
+
+export const getUranai = async (date, sign, id) => {
+  const docRef = db.collection("uranais").doc(date).collection(sign).doc(id);
+  const snapshot = await docRef.get();
+
+  if (!snapshot.empty) {
+    const uranai = snapshot.data();
+    const createdAt = JSON.parse(JSON.stringify(uranai.created_at.toDate()));
+
+    const media_title = uranai.title.split("-");
+    const media = media_title[0].trim();
+    const title = media_title[1].trim();
+
+    return {
+      id: id,
+      ...uranai,
+      created_at: createdAt,
+      titleWithoutMedia: title,
+      media: media,
+    };
   }
 };

@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     maxWidth: {
       uranaiCard: "240px",
+      uranaiArticle: "800px",
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/line-clamp")],
 };
