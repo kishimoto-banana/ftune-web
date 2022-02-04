@@ -60,7 +60,9 @@ export default function Home({ ranking }) {
         {loadingUser ? null : user.birthday ? (
           <>
             <TodayFortuneContainer />
-            <UranaiListContainer />
+            <div className="my-10">
+              <UranaiListContainer />
+            </div>
           </>
         ) : (
           <div className="pt-5">

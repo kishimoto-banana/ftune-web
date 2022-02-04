@@ -3,17 +3,18 @@ import Head from "next/head";
 import Navigation from "../components/Navigation";
 import UranaiList from "../components/UranaiList";
 import { getUranai } from "../fetchData/nodeApp";
+import { ASTRO_EN_JA } from "../lib/constants";
 
 export const getServerSideProps = async ({ params }) => {
   const { sign } = params;
   const today = format(new Date(), "yyyyMMdd");
   const uranais = await getUranai(today, sign);
   return {
-    props: { uranais: uranais },
+    props: { sign: sign, uranais: uranais },
   };
 };
 
-const signSpecificUranai = ({ uranais }) => {
+const signSpecificUranai = ({ sign, uranais }) => {
   return (
     <div className="flex flex-col min-h-screen py-2">
       <Head>
@@ -22,8 +23,11 @@ const signSpecificUranai = ({ uranais }) => {
       </Head>
       <Navigation />
 
-      <main className="flex flex-col items-center w-full flex-1 px-10 text-center">
-        <UranaiList uranais={uranais} />
+      <main className="flex flex-col items-center w-full text-center">
+        <h2 className="text-justify text-xl pt-4">{ASTRO_EN_JA[sign]}の占い</h2>
+        <div className="mt-4 mb-10">
+          <UranaiList uranais={uranais} />
+        </div>
       </main>
     </div>
   );
