@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col">
+    <div>
       <Head>
         <title>Ftune</title>
         <link rel="icon" href="/favicon.ico" />
