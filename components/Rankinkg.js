@@ -22,7 +22,7 @@ const Ranking = ({ ranking }) => {
                 alt=""
               />
               <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
                   {ASTRO_EN_JA[item.sign]}
                 </h5>
                 <Stars score={item.score} size={20} />
