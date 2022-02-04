@@ -3,14 +3,14 @@ import Navigation from "./Navigation";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
       <Head>
         <title>Ftune</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
 
-      <main className="flex flex-col items-center w-full text-center">
+      <main className="flex flex-col items-center w-full text-center min-h-screen">
         {children}
       </main>
 

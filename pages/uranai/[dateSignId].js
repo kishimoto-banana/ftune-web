@@ -53,7 +53,7 @@ const Uranai = ({ title, media, url, body, imageUrl, date, sign }) => {
         <title>{title}</title>
       </Head>
 
-      <div className="pt-4 mb-10 px-12 max-w-uranaiArticle">
+      <div className="pt-4 px-12 max-w-uranaiArticle">
         <img
           className="rounded-t-lg object-contain h-36 w-full"
           src={imageUrl}
