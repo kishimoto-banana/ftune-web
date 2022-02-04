@@ -45,7 +45,7 @@ const Card = ({
               {body}
             </p>
 
-            <p className="pt-2 text-xs md:text-sm font-normal text-gray-700">
+            <p className="pt-2 text-xs md:text-sm text-left font-normal text-gray-700">
               {date}
             </p>
             <div className="pt-1">
