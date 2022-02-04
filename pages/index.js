@@ -50,7 +50,9 @@ export default function Home({ ranking }) {
 
       {loadingUser ? null : user.birthday ? (
         <>
-          <TodayFortuneContainer />
+          <div className="flex justify-center items-center">
+            <TodayFortuneContainer />
+          </div>
           <div className="my-10">
             <UranaiListContainer />
           </div>
