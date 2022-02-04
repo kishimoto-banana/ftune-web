@@ -10,7 +10,7 @@ const TodayFortune = ({ keywords, score, loading }) => {
       <h3 className="font-medium pb-4 text-xl">{formattedToday}の運勢</h3>
       {loading ? (
         <Loading />
-      ) : (
+      ) : keywords && score ? (
         <>
           <Starts score={score} />
           <div className="flex flex-row pt-2">
@@ -24,6 +24,8 @@ const TodayFortune = ({ keywords, score, loading }) => {
             ))}
           </div>
         </>
+      ) : (
+        <p>分析中です</p>
       )}
     </div>
   );

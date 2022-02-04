@@ -87,9 +87,10 @@ export const getUranais = async (date, sign, previousFetchedAt, forceFetch) => {
 export const getAnalyzed = async (date, sign) => {
   const ref = doc(firestore, "analyzed_uranais", `${date}_${sign}`);
   const snapshot = await getDoc(ref);
-  if (snapshot.exists()) {
-    return snapshot.data();
+  if (!snapshot.exists()) {
+    return null;
   }
+  return snapshot.data();
 };
 
 export const getAnalyzedAllSign = async (date) => {
