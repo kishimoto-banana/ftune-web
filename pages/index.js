@@ -30,7 +30,7 @@ export default function Home({ ranking }) {
           <RegisteredInfoContainer birthday={user.birthday} />
           <button
             onClick={() => setShowModal(true)}
-            className="pb-1 ml-auto text-sm text-blue-500 hover:text-blue-600"
+            className="pb-1 text-sm text-blue-500 hover:text-blue-600"
           >
             <div className="flex flex-row justify-center items-center gap-0.5">
               生年月日を変更する
