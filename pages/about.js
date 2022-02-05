@@ -15,7 +15,7 @@ const About = () => {
           </h2>
           <div className="pt-2 pb-2 px-4 max-w-about">
             <p className="leading-relaxed text-justify">
-              Ftuneは生年月日を登録するだけで、様々なあなたへの占いをお届けするサービスです。
+              Ftuneは生年月日を登録するだけで、あなたへの様々な占いをお届けするサービスです。
             </p>
             <p className="leading-relaxed text-justify">
               今日の占いや今週の占い、今年の占いなど色々な占いをお届けするので、もう占いを検索して確認する必要はありません。
@@ -30,10 +30,10 @@ const About = () => {
           </h2>
           <div className="pt-2 pb-2 px-4 max-w-about">
             <p className="leading-relaxed text-justify">
-              独自のAIにより複数の占いを横断してあなたの運勢を分析します。
+              独自のAIにより複数の占いを集約してあなたの運勢を分析します。
             </p>
             <p className="leading-relaxed text-justify">
-              複数の占いを集約した運勢のスコアや、運勢のキーワードなどを確認できます。
+              分析した運勢のスコアや、運勢のキーワードなどを確認できます。
             </p>
           </div>
           <img src="/today_fortune.png" alt="" className="h-44 w-auto" />
