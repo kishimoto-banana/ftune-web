@@ -6,7 +6,6 @@ import { getUranai } from "../../fetchData/nodeApp";
 import { ASTRO_EN_JA } from "../../lib/constants";
 
 export const getServerSideProps = async ({ query }) => {
-  console.log(query);
   if (query.title) {
     return {
       props: { ...query },

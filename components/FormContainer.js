@@ -30,9 +30,7 @@ const FormContainer = ({ setShowModal }) => {
       year.toString() +
       month.toString().padStart(2, "0") +
       day.toString().padStart(2, "0");
-    console.log(birthdayStr);
     const ParsedBirthday = parse(birthdayStr, "yyyyMMdd", new Date());
-    console.log(ParsedBirthday);
     const formatDate = format(ParsedBirthday, "MMdd");
     const sign = await getSign(formatDate);
     const updateParams = {

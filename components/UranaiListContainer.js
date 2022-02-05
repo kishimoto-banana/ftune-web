@@ -13,13 +13,7 @@ const fetchUranais = async (key, user) => {
 };
 
 const UranaiListContainer = () => {
-  const { loadingUser, user } = useUser();
-
-  // useEffect(() => {
-  //   if (!loadingUser) {
-  //     console.log(user);
-  //   }
-  // }, [loadingUser, user]);
+  const { user } = useUser();
 
   const { data } = useSWR(["/firestore/uranais", user], fetchUranais);
 
