@@ -17,9 +17,9 @@ export const Navigation = () => {
           </a>
         </Link>
       </div>
-      <div class="border-b border-gray-300 shadow-sm flex lex-row items-center justify-center">
-        <ul class="flex flex-row -mb-px overflow-x-auto">
-          <li class="flex-none">
+      <div className="border-b border-gray-300 shadow-sm flex lex-row items-center justify-center">
+        <ul className="flex flex-row -mb-px overflow-x-auto">
+          <li className="flex-none">
             <Link href="/">
               <a
                 className={
@@ -32,7 +32,7 @@ export const Navigation = () => {
               </a>
             </Link>
           </li>
-          <li class="flex-none">
+          <li className="flex-none">
             <Link href="/ranking">
               <a
                 className={
@@ -45,7 +45,7 @@ export const Navigation = () => {
               </a>
             </Link>
           </li>
-          <li class="flex-none">
+          <li className="flex-none">
             <Link href="/about">
               <a
                 className={
