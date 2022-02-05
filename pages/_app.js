@@ -2,7 +2,7 @@ import "../firebase/clientApp";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import UserProvider from "../context/userContext";
-import { GoogleAnalytics, usePageView } from "../lib/gtag";
+import { usePageView } from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
   usePageView();
@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <Layout>
-        <GoogleAnalytics />
         <Component {...pageProps} />
       </Layout>
     </UserProvider>
