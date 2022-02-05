@@ -19,11 +19,14 @@ const Layout = ({ children }) => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ftune-web.com/" />
-        <meta property="og:image" content="/logo512.png" />
+        <meta property="og:image" content="https://ftune-web.com/logo512.png" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="https://ftune-web.com/" />
-        <meta name="twitter:image" content="/logo512.png" />
+        <meta
+          name="twitter:image"
+          content="https://ftune-web.com/logo512.png"
+        />
 
         <meta
           name="description"
