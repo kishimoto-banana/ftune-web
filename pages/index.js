@@ -25,43 +25,43 @@ export default function Home({ ranking }) {
 
   return (
     <div>
-      {!loadingUser && user.birthday ? (
-        <div className="flex flex-col justify-center items-center pt-4">
-          <RegisteredInfoContainer birthday={user.birthday} />
-          <button
-            onClick={() => setShowModal(true)}
-            className="pb-1 text-sm text-blue-500 hover:text-blue-600"
-          >
-            <div className="flex flex-row justify-center items-center gap-0.5">
-              生年月日を変更する
-              <FiArrowRight />
-            </div>
-          </button>
-          {showModal ? <Modal setShowModal={setShowModal} /> : null}
-        </div>
-      ) : (
-        <div className="flex flex-col justify-center items-center pt-4">
-          <p className="text-xl">生年月日を入力すると</p>
-          <p className="text-xl">あなたへの占いが表示されます</p>
-
-          <FormContainer />
-        </div>
-      )}
-
-      {loadingUser ? null : user.birthday ? (
-        <>
-          <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center pt-4">
+        {loadingUser ? (
+          <>
+            <RegisteredInfoContainer /> <TodayFortuneContainer />
+          </>
+        ) : user.birthday ? (
+          <>
+            <RegisteredInfoContainer birthday={user.birthday} />{" "}
+            <button
+              onClick={() => setShowModal(true)}
+              className="pb-1 text-sm text-blue-500 hover:text-blue-600"
+            >
+              <div className="flex flex-row justify-center items-center gap-0.5">
+                生年月日を変更する
+                <FiArrowRight />
+              </div>
+            </button>
+            {showModal && <Modal setShowModal={setShowModal} />}
             <TodayFortuneContainer />
-          </div>
-          <div className="my-10">
-            <UranaiListContainer />
-          </div>
-        </>
-      ) : (
-        <div className="mt-5 mb-10">
-          <RankingList ranking={ranking} />
-        </div>
-      )}
+            <div className="my-10">
+              <UranaiListContainer />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex flex-col justify-center items-center pt-4">
+              <p className="text-xl">生年月日を入力すると</p>
+              <p className="text-xl">あなたへの占いが表示されます</p>
+
+              <FormContainer />
+            </div>
+            <div className="mt-5 mb-10">
+              <RankingList ranking={ranking} />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
