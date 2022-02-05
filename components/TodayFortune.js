@@ -6,7 +6,7 @@ import Loading from "./Loading";
 const TodayFortune = ({ keywords, score, loading }) => {
   const formattedToday = format(new Date(), "M月d日", { locale: ja });
   return (
-    <div className="w-{300} md:w-80 flex flex-col justify-center items-center bg-rose-100 rounded-lg border p-5  md:pt-2 md:pb-5 mt-2">
+    <div className="w-{300} md:w-96 flex flex-col justify-center items-center bg-rose-100 rounded-lg border p-5  md:pt-2 md:pb-5 mt-2">
       <h3 className="font-medium pb-4 text-xl">{formattedToday}の運勢</h3>
       {loading ? (
         <Loading />
