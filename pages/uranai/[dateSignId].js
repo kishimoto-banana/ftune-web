@@ -58,7 +58,7 @@ const Uranai = ({ title, media, url, body, imageUrl, date, sign }) => {
           src={imageUrl}
           alt=""
         />
-        <h2 className="pt-2 text-lg md:text-xl font-bold text-rose-400">
+        <h2 className="pt-2 text-lg md:text-xl font-bold text-pink-500">
           {title}
         </h2>
         <p className="text-sm md:text-md text-left font-normal text-gray-400">
@@ -79,7 +79,7 @@ const Uranai = ({ title, media, url, body, imageUrl, date, sign }) => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-md text-blue-500 hover:text-blue-600"
+            className="text-md text-pink-500 hover:text-pink-600"
           >
             <div className="flex flex-row justify-center items-center gap-0.5">
               <p>続きを読む</p>
