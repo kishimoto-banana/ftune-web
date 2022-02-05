@@ -2,6 +2,10 @@ import Head from "next/head";
 import Navigation from "./Navigation";
 
 const Layout = ({ children }) => {
+  const termsUrl = "https://kiyac.app/termsOfService/AaOtl2Wnfps704ZCt1ZK";
+  const privacyPolicyUrl =
+    "https://kiyac.app/plivacypolicy/Q5nAA3GVlz63FBC0d0Mh";
+
   return (
     <div>
       <Head>
@@ -30,8 +34,28 @@ const Layout = ({ children }) => {
         {children}
       </main>
 
-      <footer className="flex items-center justify-center w-full h-12 mt-4 border-t">
-        <p className="flex items-center justify-center">&copy; bootch</p>
+      <footer className="flex flex-col gap-4 items-center justify-center w-full mt-4 border-t">
+        <div className="flex flex-row pt-4 gap-8 flex-wrap">
+          <a
+            href={termsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm hover:underline"
+          >
+            利用規約
+          </a>
+          <a
+            href={privacyPolicyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm hover:underline"
+          >
+            プライバシーポリシー
+          </a>
+        </div>
+        <p className="flex items-center justify-center pb-4 text-sm">
+          &copy; bootch
+        </p>
       </footer>
     </div>
   );
