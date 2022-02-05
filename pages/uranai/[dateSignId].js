@@ -58,7 +58,7 @@ const Uranai = ({ title, media, url, body, imageUrl, date, sign }) => {
           src={imageUrl}
           alt=""
         />
-        <h2 className="pt-2 text-lg md:text-xl font-bold text-pink-500">
+        <h2 className="pt-2 text-lg md:text-xl font-bold text-gray-900">
           {title}
         </h2>
         <p className="text-sm md:text-md text-left font-normal text-gray-400">
