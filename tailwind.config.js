@@ -7,6 +7,7 @@ module.exports = {
     maxWidth: {
       uranaiCard: "240px",
       uranaiArticle: "800px",
+      about: "600px",
     },
     extend: {},
   },
