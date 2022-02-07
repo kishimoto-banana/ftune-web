@@ -16,7 +16,9 @@ const fetchUranais = async (key, user) => {
 const UranaiListContainer = () => {
   const { user } = useUser();
 
-  const { data } = useSWR(["/firestore/uranais", user], fetchUranais);
+  const { data } = useSWR(["/firestore/uranais", user], fetchUranais, {
+    dedupingInterval: 600000,
+  });
 
   return <div>{data ? <UranaiList uranais={data} /> : <Loading />}</div>;
 };
