@@ -32,10 +32,7 @@ export const getUranais = async (date, sign) => {
     return { ...uranai, titleWithoutMedia: title, media: media };
   });
 
-  const uranaisExistBody = uranaisSplitted.filter((uranai) => {
-    return uranai.body !== "";
-  });
-  return uranaisExistBody;
+  return uranaisSplitted;
 };
 
 export const getAnalyzed = async (date, sign) => {

@@ -32,6 +32,7 @@ const Card = ({
           <p className="pt-1 text-sm md:text-md truncate mb-1 font-normal text-gray-700">
             {body}
           </p>
+          {!body && <div className="my-6"></div>}
 
           <p className="pt-2 text-xs md:text-sm text-left font-normal text-gray-700">
             {date}
