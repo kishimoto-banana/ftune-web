@@ -6,6 +6,11 @@ import { ASTRO_EN_JA } from "../lib/constants";
 
 export const getServerSideProps = async ({ params }) => {
   const { sign } = params;
+  if (!(sign in ASTRO_EN_JA)) {
+    return {
+      notFound: true,
+    };
+  }
   const today = format(new Date(), "yyyyMMdd");
   const uranais = await getUranais(today, sign);
   return {
