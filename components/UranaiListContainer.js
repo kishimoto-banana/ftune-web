@@ -8,8 +8,7 @@ import UranaiList from "./UranaiList";
 
 const fetchUranais = async (key, user) => {
   const today = format(new Date(), "yyyyMMdd");
-  // const fetchedUranais = getUranais(today, user.sign);
-  const fetchedUranais = getUranais(today, user.sign ? user.sign : "aries");
+  const fetchedUranais = getUranais(today, user.sign);
   return fetchedUranais;
 };
 

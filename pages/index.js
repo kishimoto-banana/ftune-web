@@ -55,8 +55,7 @@ export default function Home({ ranking }) {
               <FormContainer />
             </div>
             <div className="mt-5 mb-10">
-              {/* <RankingList ranking={ranking} /> */}
-              <UranaiListContainer />
+              <RankingList ranking={ranking} />
             </div>
           </>
         )}
