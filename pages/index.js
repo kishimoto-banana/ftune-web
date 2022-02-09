@@ -26,11 +26,11 @@ export default function Home({ ranking }) {
       <div className="flex flex-col justify-center items-center pt-4">
         {loadingUser ? (
           <>
-            <RegisteredInfoContainer /> <TodayFortuneContainer />
+            <TodayFortuneContainer />
           </>
         ) : user.birthday ? (
           <>
-            <RegisteredInfoContainer birthday={user.birthday} />{" "}
+            <TodayFortuneContainer />
             <button
               onClick={() => setShowModal(true)}
               className="pb-1 text-sm text-pink-500 hover:text-pink-600"
@@ -41,7 +41,6 @@ export default function Home({ ranking }) {
               </div>
             </button>
             {showModal && <Modal setShowModal={setShowModal} />}
-            <TodayFortuneContainer />
             <div className="my-10">
               <UranaiListContainer />
             </div>
