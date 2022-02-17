@@ -21,8 +21,6 @@ export default function Home({ ranking }) {
   const { user, loadingUser } = useUser();
   const [showModal, setShowModal] = useState(false);
 
-  console.log(user);
-
   return (
     <div>
       <div className="flex flex-col justify-center items-center pt-4">
