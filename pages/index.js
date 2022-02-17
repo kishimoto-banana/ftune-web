@@ -21,12 +21,17 @@ export default function Home({ ranking }) {
   const { user, loadingUser } = useUser();
   const [showModal, setShowModal] = useState(false);
 
+  console.log(user);
+
   return (
     <div>
       <div className="flex flex-col justify-center items-center pt-4">
         {loadingUser ? (
           <>
             <TodayFortuneContainer />
+            <div className="mt-5 mb-10">
+              <RankingList ranking={ranking} />
+            </div>
           </>
         ) : user.birthday ? (
           <>
