@@ -11,6 +11,10 @@ const Layout = ({ children }) => {
       <Head>
         <title>Ftune</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="複数の占いをまとめて確認できるサービスです。"
+        />
         <meta property="og:site_name" content="Ftune" />
         <meta property="og:title" content="Ftune" />
         <meta
@@ -26,11 +30,6 @@ const Layout = ({ children }) => {
         <meta
           name="twitter:image"
           content="https://ftune-web.com/logo512.png"
-        />
-
-        <meta
-          name="description"
-          content="複数の占いをまとめて確認できるサービスです。"
         />
       </Head>
       <Navigation />
