@@ -7,8 +7,6 @@ export async function getServerSideProps() {
   const today = formatToTimeZone(new Date(), "YYYYMMDD", {
     timeZone: "Asia/Tokyo",
   });
-  console.log(new Date());
-  console.log(today);
 
   const analyzedUranais = await getAnalyzedUranai(today);
   const ranking = analyzedUranais.sort((a, b) => b.score - a.score);
