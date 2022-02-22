@@ -1,10 +1,13 @@
-import format from "date-fns/format";
+import { formatToTimeZone } from "date-fns-timezone";
 import Head from "next/head";
 import RankingList from "../components/Rankinkg";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
 
 export async function getServerSideProps() {
-  const today = format(new Date(), "yyyyMMdd");
+  const today = formatToTimeZone(new Date(), "YYYYMMDD", {
+    timeZone: "Asia/Tokyo",
+  });
+
   const analyzedUranais = await getAnalyzedUranai(today);
   const ranking = analyzedUranais.sort((a, b) => b.score - a.score);
   return { props: { ranking } };

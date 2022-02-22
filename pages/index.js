@@ -1,17 +1,18 @@
-import format from "date-fns/format";
+import { formatToTimeZone } from "date-fns-timezone";
 import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import FormContainer from "../components/FormContainer";
 import Modal from "../components/Modal";
 import RankingList from "../components/Rankinkg";
-import RegisteredInfoContainer from "../components/RegisteredInfoContainer";
 import TodayFortuneContainer from "../components/TodayFortuneContainer";
 import UranaiListContainer from "../components/UranaiListContainer";
 import { useUser } from "../context/userContext";
 import { getAnalyzedUranai } from "../fetchData/nodeApp";
 
 export async function getServerSideProps() {
-  const today = format(new Date(), "yyyyMMdd");
+  const today = formatToTimeZone(new Date(), "YYYYMMDD", {
+    timeZone: "Asia/Tokyo",
+  });
   const analyzedUranais = await getAnalyzedUranai(today);
   const ranking = analyzedUranais.sort((a, b) => b.score - a.score);
   return { props: { ranking } };
