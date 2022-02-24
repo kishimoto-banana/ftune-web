@@ -7,11 +7,11 @@ export default function Document() {
     <Html lang="ja">
       <Head>
         <GoogleAnalytics />
-        <Imobile />
       </Head>
       <body>
         <Main />
         <NextScript />
+        <Imobile />
       </body>
     </Html>
   );
