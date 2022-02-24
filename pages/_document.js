@@ -1,17 +1,17 @@
 import { Head, Html, Main, NextScript } from "next/document";
-import { Adsense } from "../lib/adsense";
 import { GoogleAnalytics } from "../lib/gtag";
+import { Imobile } from "../lib/imobile";
 
 export default function Document() {
   return (
     <Html lang="ja">
       <Head>
-        <Adsense />
         <GoogleAnalytics />
       </Head>
       <body>
         <Main />
         <NextScript />
+        <Imobile />
       </body>
     </Html>
   );
