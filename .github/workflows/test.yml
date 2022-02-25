@@ -12,5 +12,5 @@ jobs:
         with:
           node-version: 16.x
           cache: "npm"
-      - run: yarn ci
+      - run: yarn install --frozen-lockfile
       - run: yarn test
